@@ -66,3 +66,4 @@ st.text("")
 #deploy de app https://www.youtube.com/watch?v=kXvmqg8hc70
 
 st.write("Deze tool is gemaakt door Rachelle Hermans en Emile Baljeu. Zij zijn, evenals Fontys Hogescholen, niet aansprakelijk voor mogelijke complicaties tijdens en/of na het gebruik van deze site. Ook hebben zij geen rechten voor het gebruiken van het logo op deze site, dus klaag ze alstublieft niet aan. Groetjes!")
+st.image("https://github.com/emile-stage/Stage/blob/main/Stage_is_leuk.png")
