@@ -145,15 +145,6 @@ if uploaded_file is not None:
     temp = grid_return4['data']
     for i in new_df2['Taken'][new_df2['Aan']==1]:
         new_df2.loc[new_df2['Taken']==i,'Aantal'] = int(temp['Aantal'][temp['Taken']==i])
-        
-
-
-    st.text("")
-    st.write("dit is de belangrijke!")
-    grid_return = AgGrid(new_df2, editable=False)
-    
-    
-    
     
     for i in range(10):
         st.text("")
