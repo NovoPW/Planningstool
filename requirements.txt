@@ -4,5 +4,5 @@ openpyxl==3.0.9
 streamlit-aggrid==0.2.3.post2
 mip==1.13.0
 numpy==1.21.0
-
+xlsxwriter==3.0.3
 
