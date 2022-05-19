@@ -26,7 +26,6 @@ from mip import Model, xsum, minimize, maximize, BINARY, CBC, OptimizationStatus
 # Hoofdletters in de dataset toevoegen
 # =============================================================================
 
-st.image("https://raw.githubusercontent.com/emile-stage/Stage/main/Stage_is_leuk.png")
 st.image("https://raw.githubusercontent.com/emile-stage/Stage/main/NOVO-Logo.png")
 st.write("""
          ***
