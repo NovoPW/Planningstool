@@ -27,7 +27,7 @@ from mip import Model, xsum, minimize, maximize, BINARY, CBC, OptimizationStatus
 # =============================================================================
 
 
-st.image("https://regio-business.nl/media/3495018/NOVO-Logo.jpg")
+st.image("https://github.com/emile-stage/Stage/blob/main/NOVO-Logo.jpg")
 st.write("""
          ***
          
