@@ -384,7 +384,7 @@ if uploaded_file is not None:
             for werknemer1 in werknemers[:-1]:
                 for werknemer2 in werknemers[np.where(werknemers == werknemer1)[0][0]:]:
                     if ((data_aanwezig.Nederlands[werknemer1] + data_aanwezig.Nederlands[werknemer2] == 2) 
-                        or (data_aanwezig.Pools[werknemer1] + data_aanwezig.Pools[werknemer2] == 2)):
+                        or(data_aanwezig.Pools[werknemer1] + data_aanwezig.Pools[werknemer2] == 2)):
                         ind = vorm_taal.index((werknemer1,werknemer2))
                         taal[ind] = 0
                         
