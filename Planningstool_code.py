@@ -754,7 +754,7 @@ if uploaded_file is not None:
                     colnames.append("".join(["Werknemer ",str(i+1)]))
                 df_rechts.columns = colnames
                 
-                st.dataframe(pd.concat([df_links,df_rechts]))
+                st.dataframe(pd.concat([df_links,df_rechts]).fillna('', inplace=True))
   
   
 
