@@ -186,7 +186,7 @@ if uploaded_file is not None:
         #speciale_mensen_niveau_list = []
         speciale_taken_list = []
         for i in range(int(aantal_taken)):
-            speciale_taak = st.text_input("Hoe heet deze ",str(i+1),"e taak die toegevoegd moet worden?")
+            speciale_taak = st.text_input("".join(["Hoe heet deze ",str(i+1),"e taak die toegevoegd moet worden?"]))
             speciale_mense = st.multiselect(
                 "".join(["Wie gaan deze ",str(i+1),"e taak uitvoeren?"]),
                 new_df['Werknemers'][new_df["Aanwezig"]==1])
@@ -596,6 +596,7 @@ if uploaded_file is not None:
                         st.write('Er kan helaas geen oplossing gevonden worden.')
                     poging += 1
                 if status_relax == OptimizationStatus.OPTIMAL:
+                    count = 0
                     for v in model_relax.vars:
                         if v.name[0] == 'x':
                             solution.loc[count,'x'] = v.name
@@ -604,7 +605,7 @@ if uploaded_file is not None:
                             solution.loc[count,'werknemer'] = v2
                             solution.loc[count,'taak'] = v3
                             solution.loc[count,'waarde'] = v.x
-                            count += 1
+                        count += 1
                     if (poging == 2):
                         st.warning('''LET OP! De planning voldoet niet aan de volgende eis:\n
 * Werknemers spreken niet overal dezelfde taal, waar nodig''')
@@ -620,6 +621,7 @@ if uploaded_file is not None:
 * Werknemers spreken niet overal dezelfde taal, waar nodig''')
             
             elif status == OptimizationStatus.OPTIMAL:
+                count = 0
                 for v in model.vars:
                     if v.name[0] == 'x':
                         solution.loc[count,'x'] = v.name
@@ -628,7 +630,7 @@ if uploaded_file is not None:
                         solution.loc[count,'werknemer'] = v2
                         solution.loc[count,'taak'] = v3
                         solution.loc[count,'waarde'] = v.x
-                        count += 1
+                    count += 1
 
             else:
                 st.write('Model status is niet optimaal, maar ook niet infeasible')
@@ -729,6 +731,7 @@ if uploaded_file is not None:
             # array van werknemers die afwezig zijn
             afwezig = data_werknemers[data_werknemers['Aanwezig'] == 0].Werknemers
             afwezig = set(afwezig)-set(mensen_aanwezig_niet_in_planning)
+            afwezig = pd.DataFrame(afwezig)
             
             # header in df toevoegen
 # =============================================================================
@@ -923,7 +926,7 @@ if uploaded_file is not None:
                 
             
                 # adjust afwezigheid column
-                maximum_index = afwezig.str.len().max()
+                maximum_index = afwezig[0].str.len().max()
                 writer.sheets['Planning'].set_column(len(df.columns)+3, len(df.columns)+3, maximum_index + 1)
                 
                 # adjust comments column
